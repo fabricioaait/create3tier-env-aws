@@ -1,3 +1,17 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.6"
+    }
+  }
+    backend "remote" {
+    organization = "example_corp"
+    workspaces {
+      name = "my-app-prod"
+    }
+  }
+}
 
 locals {
   aze1 = "${var.region}a"
